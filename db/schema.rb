@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_24_024552) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_24_075946) do
+  create_table "detail_infos", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.string "favorite_food", limit: 100
+    t.string "favorite_toy", limit: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_detail_infos_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "name"
     t.string "neko_type"
